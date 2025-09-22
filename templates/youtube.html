@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tiêu đề trang -->
+  <title>Đọc comment livestream Youtube - Công cụ tương tác trực tuyến</title>
+
+  <!-- Mô tả trang -->
+  <meta name="description" content="Công cụ miễn phí giúp bạn đọc comment từ Youtube Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+
+  <!-- Thẻ Open Graph cho mạng xã hội -->
+  <meta property="og:title" content="Đọc comment livestream Youtube - Công cụ tương tác trực tuyến">
+  <meta property="og:description" content="Công cụ miễn phí giúp bạn đọc comment từ Youtube Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+  <meta property="og:image" content="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+  <meta property="og:url" content="https://livestreamvoice.com">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Thẻ Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Đọc comment livestream Youtube - Công cụ tương tác trực tuyến">
+  <meta name="twitter:description" content="Công cụ miễn phí giúp bạn đọc comment từ Youtube Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+  <meta name="twitter:image" content="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+  <meta name="keywords" content="youtube, miễn phí, free, chị google đọc bình luận, chị google đọc comment, chị google, đọc comment, đọc bình luận, đọc bình luận livestream, đọc comment livestream, livestream youtube, công cụ livestream miễn phí, phản hồi tự động, auto reply comment youtube live">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://livestreamvoice.com" />
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Thư viện Three.js và Vanta.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742059082599160" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-5742059082599160">
+
+  <!-- Dữ liệu có cấu trúc (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Đọc comment livestream Youtube",
+    "url": "https://livestreamvoice.com",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "description": "Công cụ miễn phí giúp bạn đọc comment từ Youtube Live, tự động phản hồi và gửi lời cảm ơn tới người xem.",
+    "image": "https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png"
+  }
+  </script>
+
+    <style>
+      /* Gradient động */
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .btn-modern {
+        background: linear-gradient(270deg, #4203e6, #d5015a, #ecb508, #238f00);
+        background-size: 600% 600%;
+        animation: gradientShift 5s ease infinite;
+        box-shadow:
+          0 0 8px #f43f5e,
+          0 0 20px #ec4899;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .btn-modern:hover {
+        transform: scale(1.05);
+        box-shadow:
+          0 0 10px #f43f5e,
+          0 0 20px #ec4899,
+          0 0 30px #fb7185;
+      }
+
+      .btn-modern i {
+        transition: transform 0.3s ease;
+      }
+
+      .btn-modern:hover i {
+        transform: translateX(6px) scale(1.2);
+      }
+
+      .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+      }
+
+      #musicWave {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          {#z-index: 999;#}
+          z-index: 0;
+          {#opacity: 0.7;#}
+          pointer-events: none;
+      }
+
+      #comment {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          {#background-color: rgba(31, 41, 55, 0.6); /* Tailwind's bg-gray-700 + opacity */#}
+          {#overflow-y: auto;#}
+      }
+      .btn-copy-obs {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 0.5rem 1rem;
+          background: linear-gradient(135deg, #f43f5e, #ec4899);
+          color: white;
+          font-weight: 600;
+          font-size: 0.875rem;
+          border-radius: 9999px; /* full rounded */
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);
+      }
+
+        .btn-copy-obs:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+          background: linear-gradient(135deg, #ec4899, #f43f5e);
+        }
+
+        .btn-copy-obs i {
+          transition: transform 0.3s ease;
+        }
+
+        .btn-copy-obs:hover i {
+          transform: scale(1.2) rotate(5deg);
+        }
+    </style>
+</head>
+
+
+    <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+
+{#        <div class="bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md text-center">#}
+            <div class="bg-none p-8 rounded-2xl shadow-xl w-full max-w-md text-center">
+            <h1 class="text-3xl font-extrabold mb-8 bg-gradient-to-r from-pink-400 via-red-400 to-yellow-400
+                   bg-clip-text text-transparent drop-shadow-lg animate-gradient">
+              ĐỌC COMMENT LIVESTREAM YOUTUBE
+            </h1>
+
+            <label for="username" class="block text-left text-sm mb-2">Nhập Link Youtube:</label>
+{#            <input type="text" id="username" class="w-full px-4 py-2 rounded-md border border-gray-600 bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="ví dụ: https://www.youtube.com/watch?v=CUyoRAP9te0&ab_channel=MixiGaming" />#}
+            <input type="text" id="username" class="w-full px-4 py-2 rounded-md border border-gray-600 bg-transparent text-white focus:outline-none focus:ring-2 focus:ring-pink-500" placeholder="ví dụ: https://www.youtube.com/watch?v=CUyoRAP9te0&ab_channel=MixiGaming" />
+
+            <div class="bg-none mt-5 p-6 rounded-xl shadow-md border border-gray-600 hover:border-sky-400 transition-all duration-300">
+              <div class="grid grid-cols-2 gap-6">
+                <!-- Reply -->
+                <div class="flex items-center justify-between">
+                  <label for="enableReply" class="text-white text-sm flex items-center gap-2">
+                    <i class="fas fa-reply text-sky-400"></i>AI tự động trả lời comment
+                  </label>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="enableReply" class="sr-only peer">
+                    <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-lime-500 transition-all duration-300"></div>
+                    <div class="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 peer-checked:translate-x-full"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button id="startButton" onclick="startClient()"
+                    class="btn-modern mt-5 w-full text-white font-bold py-3 px-6 rounded-2xl flex items-center justify-center gap-3 select-none shadow-lg relative overflow-hidden">
+              <i class="fas fa-rocket"></i>
+              Start
+            </button>
+
+            <h2 class="text-xl font-semibold mt-2 text-pink-300">Danh sách comment</h2>
+{#            <div id="comment" class="mt-2 bg-gray-700 p-4 rounded-md h-48 overflow-y-auto text-left whitespace-pre-line"></div>#}
+
+{#            <div class="relative mt-2 h-48 overflow-y-auto rounded-md">#}
+{#              <canvas id="musicWave" class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none z-0"></canvas>#}
+{#              <div id="comment" class="mt-2 bg-gray-700 p-4 rounded-md h-48 overflow-y-auto text-left whitespace-pre-line"></div>#}
+{#            </div>#}
+
+            <div class="relative mt-2 h-48 overflow-y-auto rounded-md">
+              <canvas id="musicWave" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+              <div id="comment" class="bg-none p-4 rounded-md h-48 overflow-y-auto text-left whitespace-pre-line z-10"></div>
+            </div>
+
+            <audio id="player" controls autoplay hidden></audio>
+
+           <button aria-label="Copy OBS source for livestream OBS" onclick="copyStreamSourceOBS()"
+            class="btn-copy-obs mt-5 mx-auto">
+              <i class="fas fa-copy"></i>
+              Copy OBS Source
+           </button>
+
+{#            <button id="yt" onclick="window.location.href='/'"#}
+{#                    class="mt-5 w-full bg-blue-500 hover:bg-green-600 transition-colors text-white font-semibold py-2 px-4 rounded-lg shadow-md">#}
+{#                Phiên bản TikTok#}
+{#            </button>#}
+{##}
+{#            <button id="yt" onclick="window.location.href='/facebook'"#}
+{#                    class="mt-5 w-full bg-blue-500 hover:bg-green-600 transition-colors text-white font-semibold py-2 px-4 rounded-lg shadow-md">#}
+{#                Phiên bản Facebook#}
+{#            </button>#}
+                <div class="flex justify-center gap-4 mt-5 flex-wrap">
+                  <!-- Nút TikTok -->
+                  <a href="/"
+                     class="flex items-center gap-2 px-2 py-2 bg-gradient-to-r from-pink-500 to-blue-500 text-white text-sm font-medium rounded-lg shadow hover:scale-105 transition-transform duration-300">
+                       <svg class="w-5 h-5" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                      <path d="M232 64.005a71.573 71.573 0 01-41.51-13.16 72.234 72.234 0 01-14.68-13.71 71.87 71.87 0 01-14.81-43.14H128v165.86a23.99 23.99 0 11-24-24c.34 0 .67.01 1 .02V98.35A74.313 74.313 0 0023.79 172.67 74.313 74.313 0 0098.11 247a74.313 74.313 0 0073.73-73.32V93.79a119.2 119.2 0 0060.16 16.22v-45.97z" />
+                    </svg>
+                    Phiên Bản TikTok
+                  </a>
+
+                   <!-- Nút Facebook -->
+                  <a href="/facebook"
+                     class="flex items-center gap-2 px-2 py-2 bg-blue-700 text-white text-sm font-medium rounded-lg shadow hover:scale-105 transition-transform duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 320 512">
+                      <path d="M279.14 288l14.22-92.66h-88.91V138.33c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.54 0 225.36 0c-73.22 0-121.14 44.38-121.14 124.72v70.62H22.89V288h81.33v224h100.2V288z"/>
+                    </svg>
+                    Phiên Bản Facebook
+                  </a>
+               </div>
+
+             <div class="mt-2 w-full">
+                <a id="contact" href="https://t.me/truongjae" target="_blank" class="text-white hover:underline">
+                    Contact me on Telegram: @truongjae
+                </a>
+             </div>
+        </div>
+
+        <script>
+            function base64UrlEncode(str) {
+              let base64 = btoa(str);
+              return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+            }
+            let currentComment = "";
+            let username = "";
+
+            let audioContext;
+            let audioSource;
+            let analyzer;
+
+            const audio = document.getElementById("player");
+
+            const musicWave = document.getElementById('musicWave');
+            const ctxMusicWave = musicWave.getContext('2d');
+
+            async function startClient() {
+                if (!audioContext) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    audioSource = audioContext.createMediaElementSource(audio);
+                    analyzer = audioContext.createAnalyser();
+
+                    audioSource.connect(analyzer);
+                    analyzer.connect(audioContext.destination);
+
+                    analyzer.fftSize = 256;
+                }
+                const button = document.getElementById("startButton");
+                button.innerText = "Đang Đọc...";
+                button.disabled = true;
+                button.classList.add("opacity-50", "cursor-not-allowed");
+
+                username = document.getElementById("username").value.trim();
+                if (!username) {
+                    showError("Vui lòng nhập link");
+                    button.innerHTML = `<i class="fas fa-rocket"></i>Start`;
+                    button.disabled = false;
+                    button.classList.remove("opacity-50", "cursor-not-allowed");
+                    return;
+                }
+
+                try {
+                    button.innerText = "Đang kiểm tra...";
+                    button.disabled = true;
+                    button.classList.add("opacity-50", "cursor-not-allowed");
+
+                    const check_live = await fetch(`/youtube/check/${base64UrlEncode(username)}`);
+                    if (check_live.status === 400) {
+                        button.innerHTML = `<i class="fas fa-rocket"></i>Start`;
+                        button.disabled = false;
+                        button.classList.remove("opacity-50", "cursor-not-allowed");
+                        showError(`Link không đúng hoặc không livestream`);
+                        return;
+                    } else if (!check_live.ok) {
+                        button.innerHTML = `<i class="fas fa-rocket"></i>Start`;
+                        button.disabled = false;
+                        button.classList.remove("opacity-50", "cursor-not-allowed");
+                        showError("Đã xảy ra lỗi. Vui lòng thử lại!");
+                        return;
+                    } else {
+                        showSuccess("Start thành công");
+                    }
+                } catch (error) {
+                    console.error("Lỗi khi gửi request:", error);
+                    showError("Không thể kết nối tới server!");
+                }
+
+                // Gửi request bắt đầu
+                await fetch("/youtube/start", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username })
+                });
+
+                // Xử lý audio "dọn đường" cho mobile
+                // const audio = document.getElementById("player");
+                try {
+                    audio.src = ""; // Làm sạch
+                    await audio.play();
+                    audio.pause();
+                    audio.currentTime = 0;
+                    console.log("Audio unlocked bởi người dùng.");
+                } catch (err) {
+                    console.warn("Trình duyệt không cho phép phát audio tự động:", err);
+                }
+
+                button.innerText = "Đang Đọc...";
+                button.disabled = true;
+                button.classList.add("opacity-50", "cursor-not-allowed");
+
+                // Gọi lần đầu
+                fetchComment();
+            }
+
+            function copyStreamSourceOBS(){
+                const host = window.location.host;
+                const urlEncode = document.getElementById("username").value.trim();
+
+                navigator.clipboard.writeText(host+'/youtube/widget/'+base64UrlEncode(urlEncode))
+                  .then(() => {
+                    showSuccess("Đã copy vào clipboard!");
+                  })
+                  .catch(err => {
+                    console.error("Lỗi khi copy vào clipboard:", err);
+                  });
+            }
+
+            function waitForAudioLoad(audio) {
+                return new Promise((resolve, reject) => {
+                    audio.oncanplaythrough = resolve;
+                    audio.onerror = reject;
+                });
+            }
+
+            async function fetchComment() {
+                try {
+                    /*const res = await fetch("/youtube/comment", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ username })
+                    });*/
+
+                    {#const res = await fetch(`/youtube/comment/${base64UrlEncode(username)}`)#}
+                    const formData = new FormData();
+                    if (document.getElementById("enableReply").checked) {
+                        formData.append("reply", "1");
+                    }
+                    const res = await fetch(`/youtube/comment/${base64UrlEncode(username)}`, {
+                        method: "POST",
+                        body: formData
+                    });
+                    const data = await res.json();
+                    if (data.latest_comment == "" && currentComment != "") {
+                        await fetch("/youtube/start", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ username })
+                        });
+                    }
+                    if (data.latest_comment && data.latest_comment != "" && data.latest_comment !== currentComment) {
+                        currentComment = data.latest_comment;
+
+                        const commentBox = document.getElementById("comment");
+                        commentBox.innerText += currentComment + '\n';
+                        commentBox.scrollTop = commentBox.scrollHeight;
+
+                        audio.src = `/youtube/audio/${base64UrlEncode(username)}?t=${Date.now()}`;
+                        /*const response = await fetch("/youtube/audio", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ username })
+                        });
+
+                        if (response.ok) {
+                            const audioBlob = await response.blob();
+                            const audioUrl = URL.createObjectURL(audioBlob);
+                            const audio = new Audio(audioUrl);
+
+                            audio.load();
+                            {#audio.playbackRate = 1.5;#}
+
+                            await waitForAudioLoad(audio);
+                            audio.onended = () => {
+                                fetchComment();
+                            };
+
+                            await audio.play();
+                        } else {
+                            console.error("Failed to fetch audio");
+                            setTimeout(fetchComment, 1000);
+                        }
+                        */
+                        audio.onended = () => {
+                            fetchComment();
+                        };
+
+                        {# create music wave #}
+
+                        function resizeCanvas() {
+                            musicWave.width = musicWave.offsetWidth;
+                            musicWave.height = musicWave.offsetHeight;
+                        }
+
+                        resizeCanvas();
+                        window.addEventListener('resize', resizeCanvas);
+
+                        const bufferLength = analyzer.frequencyBinCount;
+                        const dataArray = new Uint8Array(bufferLength);
+
+                        function draw() {
+                            requestAnimationFrame(draw);
+
+                            analyzer.getByteFrequencyData(dataArray);
+
+                            ctxMusicWave.clearRect(0, 0, musicWave.width, musicWave.height);
+
+                            const barWidth = (musicWave.width / bufferLength) * 2.5;
+                            let barHeight;
+                            let x = 0;
+
+                            for (let i = 0; i < bufferLength; i++) {
+                                barHeight = dataArray[i];
+                                ctxMusicWave.fillStyle = `rgb(${barHeight + 100},50,200)`;
+                                ctxMusicWave.fillRect(x, musicWave.height - barHeight / 1.75, barWidth, barHeight / 1.75);
+                                x += barWidth + 1;
+                            }
+                        }
+                        audio.onplay = () => {
+                            if (audioContext.state === 'suspended') {
+                                audioContext.resume();
+                            }
+                            draw();
+                        };
+                        {# end music wave #}
+
+                        await audio.play();
+                    } else {
+                        setTimeout(fetchComment, 1000);
+                    }
+                } catch (err) {
+                    console.error("Lỗi khi fetch hoặc phát audio:", err);
+                    setTimeout(fetchComment, 1000);
+                }
+            }
+
+        </script>
+
+        <div id="vanta-bg" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: -1;"></div>
+        <script>
+          VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xff3f81,
+            backgroundColor: 0x0d0d0d,
+            points: 12.00,
+            maxDistance: 20.00,
+            spacing: 15.00
+          });
+        </script>
+
+
+    <div id="errorPopup" class="fixed top-2 right-2 z-50 hidden bg-red-600 text-white px-6 py-4 rounded-lg shadow-lg animate-slide-in flex items-center gap-3">
+      <i class="fas fa-exclamation-circle text-white text-xl"></i>
+      <span id="errorMessage" class="flex-1">Lỗi xảy ra</span>
+      <button onclick="hideError()" class="ml-4 text-white hover:text-yellow-200 focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div id="successPopup" class="fixed top-2 right-2 z-50 hidden bg-lime-500 text-white px-6 py-4 rounded-lg shadow-lg animate-slide-in flex items-center gap-3">
+      <i class="fas fa-check-circle text-white-0 text-xl"></i>
+      <span id="successMessage" class="flex-1">Thành công</span>
+      <button onclick="hideSuccess()" class="ml-4 text-white hover:text-yellow-200 focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <style>
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .animate-slide-in {
+        animation: slideIn 0.4s ease-out;
+      }
+    </style>
+
+     <script>
+      function showError(message) {
+        const popup = document.getElementById("errorPopup");
+        const msg = document.getElementById("errorMessage");
+
+        msg.innerText = message;
+        popup.classList.remove("hidden");
+
+        // Tự ẩn sau 4 giây
+        setTimeout(() => {
+          hideError();
+        }, 4000);
+      }
+
+      function showSuccess(message) {
+        const popup = document.getElementById("successPopup");
+        const msg = document.getElementById("successMessage");
+
+        msg.innerText = message;
+        popup.classList.remove("hidden");
+
+        // Tự ẩn sau 4 giây
+        setTimeout(() => {
+          hideSuccess();
+        }, 4000);
+      }
+
+
+      function hideError() {
+        const popup = document.getElementById("errorPopup");
+        popup.classList.add("hidden");
+      }
+       function hideSuccess() {
+        const popup = document.getElementById("successPopup");
+        popup.classList.add("hidden");
+      }
+
+    </script>
+
+    </body>
+    </html>

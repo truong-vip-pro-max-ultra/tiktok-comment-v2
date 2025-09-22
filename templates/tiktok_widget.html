@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TikTok Widget</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent !important;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #comment-container {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .comment {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      border-radius: 20px;
+      animation: flyup 8s ease-out forwards;
+      width: 90vw;
+      max-width: 1000px;
+      padding: 12px 24px;
+      font-size: 3rem;
+      color: #fff;
+      border: none;
+      backdrop-filter: none;
+      text-shadow:
+        -3px -3px 0 #ae0000,
+         3px -3px 0 #23008e,
+        -3px  3px 0 #2c8a00,
+         3px  3px 0 #b30057;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+
+    @keyframes flyup {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+      }
+      85% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.95);
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="fireworks"></canvas>
+  <div id="comment-container"></div>
+
+  <script>
+    const canvas = document.getElementById('fireworks');
+    const ctx = canvas.getContext('2d');
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+
+    function createFirework(x, y) {
+      const count = 100;
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          radius: 3 + Math.random() * 3,
+          angle: Math.random() * 2 * Math.PI,
+          speed: 3 + Math.random()  * 2.5,
+          alpha: 1,
+          decay: 0.01 + Math.random() * 0.001,
+          color: `hsl(${Math.random() * 360}, 100%, 60%)`
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach((p, i) => {
+        const vx = Math.cos(p.angle) * p.speed;
+        const vy = Math.sin(p.angle) * p.speed;
+        p.x += vx;
+        p.y += vy;
+        p.alpha -= p.decay;
+        if (p.alpha <= 0) particles.splice(i, 1);
+        else {
+          ctx.beginPath();
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.color;
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+
+  <script>
+      const gifs = [
+        'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjhkajYwaGlwNjF2aDZzbThqaGlvOGtsb2h0dnZ0NzljeWtjOGFoeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/5ZYwqEsQjg6KmpFchh/giphy.gif',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDRhbHVocnlscjZzaHVtb3lpczZla3QyM3l2NDVxOWE4OTN5bXBmeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/qrPfGNUW74xnmvGUkR/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2MycmZjamNwbjlzaW5yMTJuanZqejZ1c2dub2UzOXJjbmR1dnhqOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/WVwUS5H0rY1Ki4V2iQ/giphy.gif',
+        'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnB0dXk0Z2g5eHBwZW14bWlud2sybGhyMXN3eWxpNXlzNGhhOWZ6OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/WgsVx6C4N8tjy/giphy.gif'
+      ];
+        function base64UrlEncode(str) {
+          let base64 = btoa(str);
+          return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        }
+        const showUniverseGif = () => {
+          const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+          const gif = document.createElement('img');
+          gif.src = randomGif;
+          gif.style.position = 'fixed';
+          gif.style.bottom = '10%';
+          gif.style.left = '50%';
+          gif.style.transform = 'translateX(-50%)';
+          gif.style.zIndex = '3';
+          gif.style.width = '200px';
+          gif.style.pointerEvents = 'none';
+          document.body.appendChild(gif);
+
+          setTimeout(() => {
+            gif.remove();
+          }, 5000);
+        };
+
+
+        async function startClient(username){
+          return await fetch("/tiktok/start", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username })
+          });
+        }
+      (async () => {
+        const container = document.getElementById('comment-container');
+        let currentComment = "";
+
+        const username = '{{ username }}';
+
+        const resStartClient = await startClient(username);
+        if (resStartClient.ok){
+              const addComment = (text) => {
+              const div = document.createElement('div');
+              div.className = 'comment';
+              div.style.display = 'flex';
+              div.style.alignItems = 'center';
+              div.style.justifyContent = 'center';
+
+              const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+              const gif = document.createElement('img');
+              gif.src = randomGif;
+              gif.style.height = '200px';
+
+              // Tạo phần text
+              const span = document.createElement('span');
+              span.innerText = text;
+
+              // Gắn vào comment
+              div.appendChild(gif);
+              div.appendChild(span);
+              container.appendChild(div);
+
+              // Bắn pháo hoa tại vị trí comment
+              const rect = div.getBoundingClientRect();
+              createFirework(rect.left + rect.width / 2, rect.top);
+
+              setTimeout(() => {
+                div.remove();
+              }, 8000);
+            };
+
+            const autoFetch = setInterval(async () => {
+              try {
+                const res = await fetch(`/tiktok/comment/widget/${username}`);
+                const data = await res.json();
+                if (data.latest_comment == "" && currentComment != "") {
+                  const res = await startClient(username);
+                  if(!res.ok) clearInterval(autoFetch);
+                }
+
+                if (data.latest_comment != "" && data.latest_comment !== currentComment) {
+                  currentComment = data.latest_comment;
+                  addComment(data.latest_comment);
+                }
+              } catch (err) {
+                console.error('Error fetching comment:', err);
+              }
+            }, 1000);
+        }
+      })();
+
+
+  </script>
+</body>
+</html>

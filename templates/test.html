@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Tiêu đề trang -->
+      <title>Đọc comment livestream TikTok - Công cụ tương tác trực tuyến</title>
+
+      <!-- Mô tả trang -->
+      <meta name="description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+
+      <!-- Thẻ Open Graph cho mạng xã hội -->
+      <meta property="og:title" content="Đọc comment livestream TikTok - Công cụ tương tác trực tuyến">
+      <meta property="og:description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+      <meta property="og:image" content="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+      <meta property="og:url" content="https://livestreamvoice.com">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="vi_VN">
+
+      <!-- Thẻ Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Đọc comment livestream TikTok - Công cụ tương tác trực tuyến">
+      <meta name="twitter:description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+      <meta name="twitter:image" content="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+      <meta name="keywords" content="tiktok, miễn phí, free, chị google đọc bình luận, chị google đọc comment, chị google, đọc comment, đọc bình luận, đọc bình luận livestream, đọc comment livestream, livestream tiktok, công cụ livestream miễn phí, phản hồi tự động, auto reply comment tiktok live">
+      <meta name="robots" content="index, follow">
+
+      <link rel="canonical" href="https://livestreamvoice.com" />
+
+        <!-- Favicon -->
+      <link rel="icon" type="image/png" href="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+
+      <!-- Font Awesome -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+      <!-- Tailwind CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+
+      <!-- Thư viện Three.js và Vanta.js -->
+{#      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>#}
+{#      <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>#}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.rings.min.js"></script>
+
+      <!-- Google AdSense -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5742059082599160" crossorigin="anonymous"></script>
+      <meta name="google-adsense-account" content="ca-pub-5742059082599160">
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17101930950"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17101930950');
+    </script>
+      <!-- Dữ liệu có cấu trúc (JSON-LD) -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Đọc comment livestream TikTok",
+        "url": "https://livestreamvoice.com",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "description": "Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.",
+        "image": "https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png"
+      }
+      </script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="form-read-comment">
+         <h1 class="text-2xl font-extrabold mb-5 mt-10 bg-gradient-to-r from-blue-400 via-green-400 to-yellow-400
+                   bg-clip-text text-transparent drop-shadow-lg animate-gradient">ĐỌC COMMENT LIVESTREAM TIKTOK</h1>
+        <div class="navigation">
+        <ul>
+            <li class="list active" data-platform="tiktok">
+                <a href="#">
+                    <span class="icon">
+                        <img src="/static/image/tik-tok.png" alt="">
+                    </span>
+                    <span class="text">TikTok</span>
+                </a>
+            </li>
+            <li class="list" data-platform="facebook">
+                <a href="#">
+                    <span class="icon">
+                        <img src="/static/image/facebook.png">
+                    </span>
+                    <span class="text">Facebook</span>
+                </a>
+            </li>
+            <li class="list" data-platform="youtube">
+                <a href="#">
+                    <span class="icon">
+                        <img src="/static/image/youtube.png">
+                    </span>
+                    <span class="text">YouTube</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+         </ul>
+        </div>
+
+        <div id="content" class="content bg-none p-8 rounded-2xl shadow-xl w-full max-w-md text-center">
+
+{#        <div id="tiktok" class="tab-content active">#}
+{#            <div class="platform-title tiktok">TikTok Profile</div>#}
+{#            <div class="input-group">#}
+{#                <label for="tiktok-username">Username:</label>#}
+{#                <input type="text" id="tiktok-username" placeholder="@your_tiktok_username" />#}
+{#            </div>#}
+{#            <button class="btn" onclick="openProfile('tiktok')">Mở Profile TikTok</button>#}
+{#        </div>#}
+{##}
+{#        <div id="facebook" class="tab-content">#}
+{#            <div class="platform-title facebook">Facebook Profile</div>#}
+{#            <div class="input-group">#}
+{#                <label for="facebook-username">Username:</label>#}
+{#                <input type="text" id="facebook-username" placeholder="your.facebook.username" />#}
+{#            </div>#}
+{#            <button class="btn" onclick="openProfile('facebook')">Mở Profile Facebook</button>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div id="youtube" class="tab-content">#}
+{#            <div class="platform-title youtube">YouTube Channel</div>#}
+{#            <div class="input-group">#}
+{#                <label for="youtube-username">Channel Name:</label>#}
+{#                <input type="text" id="youtube-username" placeholder="@your_channel_name" />#}
+{#                <label for="youtube-usernamea">Channel Namae:</label>#}
+{#                <input type="text" id="youtube-usernamea" placeholder="@your_channel_namea" />#}
+{#            </div>#}
+{#            <button class="btn" onclick="openProfile('youtube')">Mở Kênh YouTube</button>#}
+{#        </div>#}
+
+        <div id="tiktok" class="tab-content active">
+            <label for="username" class="block text-left text-sm mb-2">Nhập TikTok username (không có @):</label>
+        <input type="text" id="username" class="w-full px-4 py-2 rounded-md border border-sky-400 focus:outline-none hover:border-pink-500 focus:ring-2 focus:ring-pink-500" placeholder="ví dụ: nguyenvana" />
+
+
+          <div class=" mt-5 p-6 rounded-xl shadow-md border border-sky-400 hover:border-pink-500 transition-all duration-300">
+          <div class="grid grid-cols-2 gap-6">
+            <!-- Reply -->
+            <div class="flex items-center justify-between">
+              <label for="enableReply" class="text-sm flex items-center gap-2">
+                <i class="fas fa-reply text-sky-400"></i>AI tự động trả lời comment
+              </label>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="enableReply" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-lime-500 transition-all duration-300"></div>
+                <div class="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 peer-checked:translate-x-full"></div>
+              </label>
+            </div>
+
+            <!-- Like -->
+            <div class="flex items-center justify-between">
+              <label for="enableLike" class="text-sm flex items-center gap-2">
+                <i class="fas fa-heart text-red-400"></i> Cảm ơn thả tim
+              </label>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="enableLike" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-purple-500 transition-all duration-300"></div>
+                <div class="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 peer-checked:translate-x-full"></div>
+              </label>
+            </div>
+
+            <!-- Comment -->
+            <div class="flex items-center justify-between">
+              <label for="enableCmt" class="text-sm flex items-center gap-2">
+                <i class="fas fa-comment-dots text-pink-400"></i> Đọc comment
+              </label>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="enableCmt" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-pink-500 transition-all duration-300"></div>
+                <div class="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 peer-checked:translate-x-full"></div>
+              </label>
+            </div>
+
+            <!-- Gift -->
+            <div class="flex items-center justify-between">
+              <label for="enableGift" class="text-sm flex items-center gap-2">
+                <i class="fas fa-gift text-yellow-400"></i> Cảm ơn tặng quà
+              </label>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="enableGift" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:bg-sky-400 transition-all duration-300"></div>
+                <div class="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 peer-checked:translate-x-full"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+        <button id="startButton" onclick="startClient()" class="btn-modern mt-5 w-full text-white font-bold py-3 px-6 rounded-2xl flex items-center justify-center gap-3 select-none shadow-lg relative overflow-hidden">
+          <i class="fas fa-rocket"></i>
+          Start
+        </button>
+        <h2 class="text-xl font-semibold mt-2 text-sky-500">Danh sách comment</h2>
+         <div class="relative mt-2 h-48 overflow-y-auto rounded-md">
+          <canvas id="musicWave" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+          <div id="comment" class="bg-none p-4 rounded-md h-48 overflow-y-auto text-left whitespace-pre-line z-10"></div>
+         </div>
+
+        <audio id="player" controls autoplay hidden></audio>
+
+        <button aria-label="Copy OBS source for livestream OBS" onclick="copyStreamSourceOBS()"
+        class="btn-copy-obs mt-5 mx-auto">
+          <i class="fas fa-copy"></i>
+          Copy OBS Source
+        </button>
+            <div class="mt-2 w-full">
+            <a id="contact" href="https://t.me/truongjae" target="_blank" class="text-white hover:underline">
+                Contact me on Telegram: @truongjae
+            </a>
+            <p>Lượt truy cập: {{ counter_requests }}</p>
+         </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div id="errorPopup" class="fixed top-2 right-2 z-50 hidden bg-red-600 text-white px-6 py-4 rounded-lg shadow-lg animate-slide-in flex items-center gap-3">
+      <i class="fas fa-exclamation-circle text-white text-xl"></i>
+      <span id="errorMessage" class="flex-1">Lỗi xảy ra</span>
+      <button onclick="hideError()" class="ml-4 text-white hover:text-yellow-200 focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div id="successPopup" class="fixed top-2 right-2 z-50 hidden bg-lime-500 text-white px-6 py-4 rounded-lg shadow-lg animate-slide-in flex items-center gap-3">
+      <i class="fas fa-check-circle text-white-0 text-xl"></i>
+      <span id="successMessage" class="flex-1">Thành công</span>
+      <button onclick="hideSuccess()" class="ml-4 text-white hover:text-yellow-200 focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div id="vanta-bg" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: -1;"></div>
+    <script>
+    VANTA.RINGS({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00
+    })
+    </script>
+
+    <script src="/static/background.js"></script>
+    <script src="/static/read-comment.js"></script>
+    <script src="/static/popup-error.js"></script>
+</body>
+</html>
