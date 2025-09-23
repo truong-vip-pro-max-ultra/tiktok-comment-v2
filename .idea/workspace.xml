@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2006d6f8-6ab3-4c7c-b609-ca1a8c975864" name="Changes" comment="add ai">
-      <change afterPath="$PROJECT_DIR$/cicd/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/background.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/popup-error.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/read-comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/read_comment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/style-term.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/background.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/page/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/page/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/page/privacy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/page/terms.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../autoadb/key.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../autoadb/key.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../autoadb/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../autoadb/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../autoadb/output/main.rar" beforeDir="false" />
@@ -22005,6 +22005,21 @@
       <change beforePath="$PROJECT_DIR$/../../testapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../testapi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../teststring.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../teststring.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tienganhb1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../tienganhb1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio_files_tiktok/bothucvat.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio_files_tiktok/theanh28entertainment.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/ai.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/facebook_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/facebook_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/tiktok_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/tiktok_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/background.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/popup-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/popup-error.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/read-comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/read-comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/read_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/read_comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/counter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/counter.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../python k7/demonumpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../python k7/demonumpy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../python k7/demopygame.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../python k7/demopygame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../python k7/function.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../python k7/function.py" afterDir="false" />
@@ -22105,7 +22120,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -22131,34 +22146,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Debug&quot;,
-    &quot;Python.ai.executor&quot;: &quot;Run&quot;,
-    &quot;Python.facebook_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.leetcode.executor&quot;: &quot;Run&quot;,
-    &quot;Python.read_comment_live_fb_yt_tiktok.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.read_comment_live_fb_yt_tiktok_v2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.shopee.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/truongjae/Desktop/win/HOCTAP/Python/python-promax-main/postapi/tiktoktestapi/read_comment_live_fb_yt_tiktok_v2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Flask server.Flask (app.py).executor": "Debug",
+    "Python.ai.executor": "Run",
+    "Python.facebook_client.executor": "Run",
+    "Python.leetcode.executor": "Run",
+    "Python.read_comment_live_fb_yt_tiktok.executor": "Debug",
+    "Python.read_comment_live_fb_yt_tiktok_v2.executor": "Debug",
+    "Python.shopee.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/truongjae/Desktop/win/HOCTAP/Python/python-promax-main/postapi/tiktoktestapi/read_comment_live_fb_yt_tiktok_v2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/css" />
+      <recent name="$PROJECT_DIR$/static/js" />
+      <recent name="$PROJECT_DIR$/static/page" />
       <recent name="$PROJECT_DIR$/service" />
       <recent name="$PROJECT_DIR$/cicd" />
-      <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
   <component name="RunManager" selected="Python.read_comment_live_fb_yt_tiktok_v2">
@@ -22272,7 +22289,8 @@
       <workItem from="1758367928103" duration="9569000" />
       <workItem from="1758421492202" duration="2203000" />
       <workItem from="1758429818063" duration="1337000" />
-      <workItem from="1758556780138" duration="2634000" />
+      <workItem from="1758556780138" duration="2792000" />
+      <workItem from="1758633834716" duration="11953000" />
     </task>
     <task id="LOCAL-00014" summary="add music wave">
       <option name="closed" value="true" />
@@ -22730,52 +22748,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>202</line>
+          <line>217</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>203</line>
+          <line>218</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>205</line>
+          <line>220</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>206</line>
+          <line>221</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>213</line>
+          <line>228</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>214</line>
+          <line>229</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>217</line>
+          <line>232</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app.py</url>
-          <line>302</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>303</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>169</line>
+          <line>184</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
@@ -22784,8 +22792,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$read_comment_live_fb_yt_tiktok.coverage" NAME="read_comment_live_fb_yt_tiktok Coverage Results" MODIFIED="1749880887558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$shopee.coverage" NAME="shopee Coverage Results" MODIFIED="1748885239784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$ai.coverage" NAME="ai Coverage Results" MODIFIED="1758651356975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$test.coverage" NAME="test Coverage Results" MODIFIED="1749885991537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$read_comment_live_fb_yt_tiktok_v2.coverage" NAME="read_comment_live_fb_yt_tiktok_v2 Coverage Results" MODIFIED="1758556807271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$read_comment_live_fb_yt_tiktok_v2.coverage" NAME="read_comment_live_fb_yt_tiktok_v2 Coverage Results" MODIFIED="1758654289358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1748348929099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1748679126840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1751127629990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

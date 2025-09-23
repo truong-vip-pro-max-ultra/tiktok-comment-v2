@@ -5,12 +5,85 @@ let audioContext;
 let audioSource;
 let analyzer;
 
+const startButton = document.getElementById("startButton");
+
 const audio = document.getElementById("player");
 
 const musicWave = document.getElementById('musicWave');
+
 const ctxMusicWave = musicWave.getContext('2d');
 
+const formListCommentElm = document.getElementById('form-list-comment');
+
+const commentBox = document.getElementById("comment");
+
+// const urlServer = 'https://livestreamvoice.com';
+const urlServer = '';
+
+const typeUsername = new Map();
+typeUsername.set(PLATFORM_TIKTOK, 'username');
+typeUsername.set(PLATFORM_FACEBOOK, 'link');
+typeUsername.set(PLATFORM_YOUTUBE, 'link');
+
+function isValidUsername(username) {
+    const regex = /^[A-Za-z0-9@._-]+$/;
+    return regex.test(username);
+  }
+
+function startButtonEnable(){
+    startButton.innerHTML = `<i class="fas fa-rocket"></i>Start`;
+    startButton.disabled = false;
+    startButton.classList.remove("opacity-50", "cursor-not-allowed");
+}
+
+function startButtonChecking(){
+    startButton.innerText = "Đang kiểm tra...";
+    startButton.disabled = true;
+    startButton.classList.add("opacity-50", "cursor-not-allowed");
+}
+
+function startButtonReading(){
+    startButton.innerText = "Đang Đọc...";
+    startButton.disabled = true;
+    startButton.classList.add("opacity-50", "cursor-not-allowed");
+}
+
+function base64UrlEncode(str) {
+    let base64 = btoa(str);
+    return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function enableFormListComment(){
+    formListCommentElm.style.display='block';
+}
+function disableFormListComment(){
+    formListCommentElm.style.display='none';
+}
+function clearUsernameInput(){
+    usernameElm.value = '';
+}
+function pauseAudio(){
+    try{
+        audio.pause();
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+function clearListComment(){
+    commentBox.innerText = '';
+}
+
+function resetTab(){
+    pauseAudio();
+    clearUsernameInput();
+    startButtonEnable();
+    disableFormListComment();
+    clearListComment();
+}
 async function startClient() {
+    flagRead = true;
+
     if (!audioContext) {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
         audioSource = audioContext.createMediaElementSource(audio);
@@ -21,32 +94,31 @@ async function startClient() {
 
         analyzer.fftSize = 256;
     }
-    const button = document.getElementById("startButton");
-    username = document.getElementById("username").value.trim().toLowerCase();
+    username = usernameElm.value.trim();
+    username = platform == PLATFORM_TIKTOK ? username.toLowerCase() : username;
+
     if (!username) {
-        showError("Vui lòng nhập username");
-        button.innerHTML = `<i class="fas fa-rocket"></i>Start`;
-        button.disabled = false;
-        button.classList.remove("opacity-50", "cursor-not-allowed");
+        showError(`Vui lòng nhập ${typeUsername.get(platform)}`);
+        // startButton.innerHTML = `<i class="fas fa-rocket"></i>Start`;
+        // startButton.disabled = false;
+        // startButton.classList.remove("opacity-50", "cursor-not-allowed");
+        return;
+    }
+
+    if(platform == PLATFORM_TIKTOK && !isValidUsername(username)){
+        showError("Username không đúng định dạng");
         return;
     }
 
     try {
-        button.innerText = "Đang kiểm tra...";
-        button.disabled = true;
-        button.classList.add("opacity-50", "cursor-not-allowed");
-
-        const check_live = await fetch(`/tiktok/check/${username}`);
+        startButtonChecking();
+        const check_live = await fetch(`${urlServer}/${platform}/check/${platform == PLATFORM_TIKTOK ? username : base64UrlEncode(username)}`);
         if (check_live.status === 400) {
-            button.innerHTML = `<i class="fas fa-rocket"></i>Start`;
-            button.disabled = false;
-            button.classList.remove("opacity-50", "cursor-not-allowed");
+            startButtonEnable();
             showError(`${username} không đúng hoặc không livestream`);
             return;
         } else if (!check_live.ok) {
-            button.innerHTML = `<i class="fas fa-rocket"></i>Start`;
-            button.disabled = false;
-            button.classList.remove("opacity-50", "cursor-not-allowed");
+            startButtonEnable();
             showError("Đã xảy ra lỗi. Vui lòng thử lại!");
             return;
         } else {
@@ -54,11 +126,14 @@ async function startClient() {
         }
     } catch (error) {
         console.error("Lỗi khi gửi request:", error);
-        showError("Không thể kết nối tới server!");
+        // showError("Không thể kết nối tới server!");
+        showError("Username/Link không đúng định dạng");
+        startButtonEnable();
+        return;
     }
 
     // Gửi request bắt đầu
-    await fetch("/tiktok/start", {
+    await fetch(`${urlServer}`+`/${platform}/start`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username })
@@ -73,13 +148,11 @@ async function startClient() {
         audio.currentTime = 0;
         console.log("Audio unlocked bởi người dùng.");
     } catch (err) {
-        console.warn("Trình duyệt không cho phép phát audio tự động:", err);
+        console.log(err);
+        // console.warn("Trình duyệt không cho phép phát audio tự động:", err);
     }
-
-
-    button.innerText = "Đang Đọc...";
-    button.disabled = true;
-    button.classList.add("opacity-50", "cursor-not-allowed");
+    enableFormListComment();
+    startButtonReading();
     // Gọi lần đầu
     fetchComment();
 }
@@ -88,7 +161,7 @@ function copyStreamSourceOBS(){
     const host = window.location.host;
     const username = document.getElementById("username").value.trim();
 
-    navigator.clipboard.writeText(host+'/tiktok/widget/'+username)
+    navigator.clipboard.writeText(host+`/${platform}/widget/${platform == PLATFORM_TIKTOK ? username : base64UrlEncode(username)}`)
       .then(() => {
         showSuccess("Đã copy vào clipboard!");
       })
@@ -105,6 +178,10 @@ function waitForAudioLoad(audio) {
 }
 
 async function fetchComment() {
+    if(!flagRead){
+        resetTab();
+        return;
+    }
     try {
         /*const enableReply = document.getElementById('enableReply');
 
@@ -125,14 +202,14 @@ async function fetchComment() {
             formData.append("gift", "1");
         }
 
-        const res = await fetch(`/tiktok/comment/${username}`, {
+        const res = await fetch(`${urlServer}/${platform}/comment/${platform == PLATFORM_TIKTOK ? username : base64UrlEncode(username)}`, {
             method: "POST",
             body: formData
         });
 
         const data = await res.json();
         if (data.latest_comment == "" && currentComment != "") {
-             await fetch("/tiktok/start", {
+             await fetch(`${urlServer}/${platform}/start`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username })
@@ -142,12 +219,11 @@ async function fetchComment() {
         if (data.latest_comment && data.latest_comment !== currentComment) {
             currentComment = data.latest_comment;
 
-            const commentBox = document.getElementById("comment");
             commentBox.innerText += currentComment + '\n';
             commentBox.scrollTop = commentBox.scrollHeight;
 
             //const audio = document.getElementById("player");
-            audio.src = `/tiktok/audio/${username}?t=${Date.now()}`;
+            audio.src = `${urlServer}/${platform}/audio/${platform == PLATFORM_TIKTOK ? username : base64UrlEncode(username)}?t=${Date.now()}`;
             //audio.load();
             // audio.playbackRate = 1.5;
             //await waitForAudioLoad(audio);
@@ -187,29 +263,6 @@ async function fetchComment() {
                     ctxMusicWave.fillRect(x, musicWave.height - barHeight / 1.75, barWidth, barHeight / 1.75);
                     x += barWidth + 1;
                 }
-                /*for (let i = 0; i < bufferLength; i++) {
-                    barHeight = dataArray[i];
-                    let gradient = ctxMusicWave.createLinearGradient(
-                        0,
-                        musicWave.height - barHeight / 1.75,
-                        0,
-                        musicWave.height
-                    );
-
-                    gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
-                    gradient.addColorStop(1, "rgb(0,39,223)");
-
-                    ctxMusicWave.fillStyle = gradient;
-                    ctxMusicWave.fillRect(
-                        x,
-                        musicWave.height - barHeight / 1.75,
-                        barWidth,
-                        barHeight / 1.75
-                    );
-
-                    x += barWidth + 1;
-                }*/
-
             }
             audio.onplay = () => {
                 if (audioContext.state === 'suspended') {
@@ -218,7 +271,6 @@ async function fetchComment() {
                 draw();
             };
             // end music wave
-
             await audio.play();
         } else {
             setTimeout(fetchComment, 1000);

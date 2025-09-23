@@ -1,7 +1,7 @@
 import requests
 import threading
 import time
-import utils
+from utils import utils
 latest_comments = {}
 latest_actives = {}
 lock = threading.Lock()

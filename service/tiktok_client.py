@@ -4,7 +4,7 @@ import threading
 import asyncio
 import random
 import time
-import utils
+from utils import utils
 import re
 import requests
 

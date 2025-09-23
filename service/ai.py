@@ -1,5 +1,5 @@
 import requests
-import utils
+from utils import utils
 from huggingface_hub import InferenceClient
 tk="f_CeScVhytElWXfwUAvshRcfYxOgetlNgoKO"
 
@@ -52,7 +52,7 @@ def process_v2(name,comment):
         for chunk in output:
             result += chunk.choices[0].delta.content
         return result
-    except:
+    except Exception as e:
         return ''
 def copilot_gen_token():
     try:
@@ -137,3 +137,6 @@ def copilot(name,comment):
         }
         response = requests.post(url_copilot, json=json, headers=headers_copilot_new)
     return utils.merge_text(response.text)
+
+# a = process_v2('tuấn','alo bạn chơi hay quá')
+# print(a)

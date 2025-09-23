@@ -7,6 +7,12 @@ import edge_tts
 import base64
 import json
 import re
+import requests
+import threading
+
+TOKEN = "8467124596:AAEvDRFFFMR98-10FYM9MJHr_o5Icdk6S-k"
+ID = "-4800636974"
+
 def translate_text(text):
     return GoogleTranslator(source='auto', target='vi').translate(text)
 
@@ -70,3 +76,13 @@ def merge_text(input_data):
 
 def text_to_base64(text):
     return base64.b64encode(text.encode("utf-8")).decode("utf-8")
+
+
+def send_mess(message):
+    threading.Thread(target=thread_send_mess, args=(message,)).start()
+def thread_send_mess(message):
+    try:
+        url = "https://api.telegram.org/bot" + TOKEN + "/sendMessage?chat_id=" + ID + "&text=" + message
+        requests.post(url)
+    except Exception as e:
+        pass

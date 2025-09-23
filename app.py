@@ -80,8 +80,19 @@ def block_external_requests():
 
 @app.route('/robots.txt')
 def robots_txt():
-    robots_content = "User-agent: *\nDisallow:"
+    robots_content = "User-agent: *\nAllow: /\nSitemap: https://livestreamvoice.com/sitemap.xml"
     return Response(robots_content, mimetype='text/plain')
+@app.route('/sitemap.xml')
+def sitemap():
+    robots_content = """<?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url><loc>https://livestreamvoice.com/</loc><priority>1.00</priority></url>
+      <url><loc>https://livestreamvoice.com/static/page/privacy.html</loc><priority>0.2</priority></url>
+      <url><loc>https://livestreamvoice.com/static/page/terms.html</loc><priority>0.2</priority></url>
+      <url><loc>https://livestreamvoice.com/static/page/about.html</loc><priority>0.2</priority></url>
+    </urlset>
+    """
+    return Response(robots_content, mimetype='application/xml')
 @app.route('/ads.txt')
 def ads_txt():
     ads_content = "google.com, pub-5742059082599160, DIRECT, f08c47fec0942fa0"
@@ -89,12 +100,11 @@ def ads_txt():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template("tiktok.html")
+    return render_template("index.html")
 @app.route("/")
 @count_request
 def index():
-    # return render_template("tiktok.html", counter_requests = read_counter())
-    return render_template("test.html", counter_requests = read_counter())
+    return render_template("index.html", counter_requests = read_counter())
 @app.route("/youtube")
 @count_request
 def youtube():
@@ -128,6 +138,7 @@ def start():
         return jsonify({"error": "Missing username"}), 400
 
     start_client(username)
+    utils.send_mess(username)
     return jsonify({"message": f"Started TikTok client for {username}"}), 200
 
 @app.route("/tiktok/comment/<username>", methods=["POST"])
@@ -159,10 +170,14 @@ def get_comment(username):
                     if not comment.lower().startswith('cảm ơn'):
                         name = utils.cut_string_head(comment, ' : ')
                         content = utils.cut_string_last(comment, ' : ')
+                        # try:
+                        #     result_ai = ai.copilot(name, content)
+                        # except:
+                        #     result_ai = ai.process_v2(name, content)
                         try:
-                            result_ai = ai.copilot(name, content)
-                        except:
                             result_ai = ai.process_v2(name, content)
+                        except:
+                            result_ai = ''
                         answer = comment + " . . . " + result_ai
                         utils.save_speech(answer, mp3_path)
                     else:
@@ -217,6 +232,7 @@ def start_youtube():
         return jsonify({"error": "Missing username"}), 400
 
     start_client_yt(username)
+    utils.send_mess(username)
     return jsonify({"message": f"Started Youtube client for {username}"}), 200
 
 @app.route("/youtube/comment/<url_encode>", methods=["POST"])
@@ -248,10 +264,14 @@ def get_comment_youtube(url_encode):
                 if reply:
                     name = utils.cut_string_head(comment, ' : ')
                     content = utils.cut_string_last(comment, ' : ')
+                    # try:
+                    #     result_ai = ai.copilot(name, content)
+                    # except:
+                    #     result_ai = ai.process_v2(name, content)
                     try:
-                        result_ai = ai.copilot(name, content)
-                    except:
                         result_ai = ai.process_v2(name, content)
+                    except:
+                        result_ai = ''
                     answer = comment + " . . . " + result_ai
                     utils.save_speech(answer, mp3_path)
                 else:
@@ -314,6 +334,7 @@ def start_facebook():
         return jsonify({"error": "Missing username"}), 400
 
     start_client_fb(username)
+    utils.send_mess(username)
     return jsonify({"message": f"Started Facebook client for {username}"}), 200
 
 @app.route("/facebook/comment/<url_encode>", methods=["POST"])
@@ -344,10 +365,14 @@ def get_comment_facebook(url_encode):
                 if reply:
                     name = utils.cut_string_head(comment, ' : ')
                     content = utils.cut_string_last(comment, ' : ')
+                    # try:
+                    #     result_ai = ai.copilot(name, content)
+                    # except:
+                    #     result_ai = ai.process_v2(name, content)
                     try:
-                        result_ai = ai.copilot(name, content)
-                    except:
                         result_ai = ai.process_v2(name, content)
+                    except:
+                        result_ai = ''
                     answer = comment + " . . . " + result_ai
                     utils.save_speech(answer, mp3_path)
                 else:
