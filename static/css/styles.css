@@ -354,7 +354,7 @@ body {
     /*background: #fff;*/
     /*border-bottom: 1px solid #e6e6e6;*/
     z-index: 999999;
-    position: fixed;
+    /*position: fixed;*/
     top: 0;
     left: 0;
     right: 0;

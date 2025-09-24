@@ -12,7 +12,7 @@
 
       <!-- Thẻ Open Graph cho mạng xã hội -->
       <meta property="og:title" content="Đọc comment livestream TikTok - Công cụ tương tác trực tuyến">
-      <meta property="og:description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+      <meta property="og:description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live nhanh chóng, tự động phản hồi và gửi lời cảm ơn tới người xem, giúp tăng tương tác và xây dựng cộng đồng hiệu quả.">
       <meta property="og:image" content="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
       <meta property="og:url" content="https://livestreamvoice.com">
       <meta property="og:type" content="website">
@@ -21,7 +21,7 @@
       <!-- Thẻ Twitter Card -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Đọc comment livestream TikTok - Công cụ tương tác trực tuyến">
-      <meta name="twitter:description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.">
+      <meta name="twitter:description" content="Công cụ miễn phí giúp bạn đọc comment từ TikTok Live nhanh chóng, tự động phản hồi và gửi lời cảm ơn tới người xem, giúp tăng tương tác và xây dựng cộng đồng hiệu quả.">
       <meta name="twitter:image" content="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
       <meta name="keywords" content="tiktok, miễn phí, free, chị google đọc bình luận, chị google đọc comment, chị google, đọc comment, đọc bình luận, đọc bình luận livestream, đọc comment livestream, livestream tiktok, công cụ livestream miễn phí, phản hồi tự động, auto reply comment tiktok live">
       <meta name="robots" content="index, follow">
@@ -30,6 +30,7 @@
 
         <!-- Favicon -->
       <link rel="icon" type="image/png" href="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png">
 
       <!-- Font Awesome -->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -63,7 +64,7 @@
         "url": "https://livestreamvoice.com",
         "applicationCategory": "Utility",
         "operatingSystem": "All",
-        "description": "Công cụ miễn phí giúp bạn đọc comment từ TikTok Live, tự động phản hồi và gửi lời cảm ơn tới người xem.",
+        "description": "Công cụ miễn phí giúp bạn đọc comment từ TikTok Live nhanh chóng, tự động phản hồi và gửi lời cảm ơn tới người xem, giúp tăng tương tác và xây dựng cộng đồng hiệu quả.",
         "image": "https://cdn4.iconfinder.com/data/icons/remains/100/facebook_live_icon-2-512.png"
       }
       </script>
@@ -81,7 +82,7 @@
       </div>
     </header>
 
-    <div class="form-read-comment">
+    <div class="form-read-comment min-h-screen">
         <h1 class="text-2xl mb-5 mt-10 uppercase
                 bg-gradient-to-r from-blue-400 via-green-400 to-yellow-400
                 bg-clip-text text-transparent drop-shadow-lg animate-gradient
@@ -94,7 +95,7 @@
             <li class="list active" data-platform="tiktok">
                 <a href="#">
                     <span class="icon">
-                        <img src="static/image/tik-tok.png" alt="">
+                        <img src="static/image/tik-tok.png" alt="icon tiktok">
                     </span>
                     <span class="text">TikTok</span>
                 </a>
@@ -102,7 +103,7 @@
             <li class="list" data-platform="facebook">
                 <a href="#">
                     <span class="icon">
-                        <img src="static/image/facebook.png">
+                        <img src="static/image/facebook.png" alt="icon facebook">
                     </span>
                     <span class="text">Facebook</span>
                 </a>
@@ -110,7 +111,7 @@
             <li class="list" data-platform="youtube">
                 <a href="#">
                     <span class="icon">
-                        <img src="static/image/youtube.png">
+                        <img src="static/image/youtube.png" alt="icon youtube">
                     </span>
                     <span class="text">YouTube</span>
                 </a>
@@ -211,23 +212,83 @@
     <article class="w-full max-w-6xl bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
       <!-- Header -->
       <header class="px-6 sm:px-10 py-8 text-center text-sky-600">
-        <h1 class="text-2xl sm:text-3xl">Hướng dẫn: Dùng LivestreamVoice để đọc comment livestream & tích hợp OBS</h1>
+        <p class="text-2xl sm:text-3xl">Đọc comment livestream TikTok - Công cụ tương tác trực tuyến</p>
+<h3 class="text-1xl sm:text-2xl mt-5 ">Chia sẻ công cụ lên mạng xã hội:</h3>
+<div class="flex justify-center mt-3 mb-5">
+<div class="share-buttons flex flex-wrap items-center gap-3">
+  <a
+    href="https://www.facebook.com/sharer/sharer.php?u=https://livestreamvoice.com"
+    target="_blank" rel="noopener"
+    class="inline-flex items-center px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold shadow hover:bg-blue-700 transition"
+  >
+    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 
+               8.438 9.878v-6.99H7.898v-2.888h2.54V9.797c0-2.507 
+               1.492-3.89 3.777-3.89 1.095 0 2.238.195 
+               2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 
+               1.562v1.873h2.773l-.443 2.888h-2.33v6.99C18.343 
+               21.128 22 16.991 22 12z"/>
+    </svg>
+    Facebook
+  </a>
+
+  <a
+    href="https://twitter.com/intent/tweet?url=https://livestreamvoice.com&text=Thử%20công%20cụ%20LivestreamVoice%20này!"
+    target="_blank" rel="noopener"
+    class="inline-flex items-center px-4 py-2 rounded-full bg-sky-500 text-white text-sm font-semibold shadow hover:bg-sky-600 transition"
+  >
+    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+      <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 
+               4.48 0 0022.4.36a9.09 9.09 0 01-2.88 1.1 
+               4.52 4.52 0 00-7.86 4.13A12.9 12.9 0 013 
+               2.1a4.52 4.52 0 001.4 6.04A4.41 4.41 0 
+               012 7.71v.06a4.52 4.52 0 003.62 4.43 
+               4.52 4.52 0 01-2.04.08 4.52 4.52 0 004.21 
+               3.13A9.05 9.05 0 012 19.54 12.79 12.79 0 
+               008.29 21c7.55 0 11.68-6.26 11.68-11.68 
+               0-.18-.01-.36-.02-.54A8.18 8.18 0 
+               0023 3z"/>
+    </svg>
+    X/Twitter
+  </a>
+
+  <a
+    href="https://www.linkedin.com/shareArticle?mini=true&url=https://livestreamvoice.com"
+    target="_blank" rel="noopener"
+    class="inline-flex items-center px-4 py-2 rounded-full bg-blue-700 text-white text-sm font-semibold shadow hover:bg-blue-800 transition"
+  >
+    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+      <path d="M20.452 20.452h-3.554v-5.569c0-1.328-.027-3.039-1.852-3.039
+               -1.853 0-2.137 1.447-2.137 2.94v5.668H9.356V9h3.414v1.561h.047
+               c.476-.9 1.637-1.852 3.372-1.852 3.605 0 4.27 2.372 4.27 
+               5.456v6.287zM5.337 7.433a2.062 2.062 0 110-4.124 2.062 
+               2.062 0 010 4.124zM6.998 20.452H3.675V9h3.323v11.452z"/>
+    </svg>
+    LinkedIn
+  </a>
+</div>
+</div>
+
+
+
+
+        <h3 class="text-2xl sm:text-3xl">Hướng dẫn: Dùng LivestreamVoice để đọc comment livestream & tích hợp OBS</h3>
         <p class="mt-2 text-sm opacity-90">Cập nhật: <time datetime="2025-06-24">24/06/2025</time> · Thời lượng đọc: 6 phút</p>
       </header>
 
       <div class="px-6 sm:px-10 py-8 space-y-8">
         <!-- Intro -->
         <section>
-          <h2 class="text-xl font-semibold mb-2">Tóm tắt nhanh</h2>
+          <p class="text-xl font-semibold mb-2">Tóm tắt nhanh</p>
           <p class="leading-relaxed text-slate-700">
-            LivestreamVoice cho phép <strong>đọc comment</strong> (TTS), <strong>auto-reply</strong>, và có chức năng <strong>Copy OBS Source</strong> để bạn dán trực tiếp vào OBS (Browser Source). Quy trình chuẩn:
-            <strong>Chọn nền tảng → Nhập username/link → Start → Copy OBS Source → Dán vào OBS → Cấu hình audio & CSS nếu cần</strong>.
+            LivestreamVoice cho phép <strong>đọc comment</strong> (TTS), <strong>auto-reply</strong>, và có chức năng <strong>Copy OBS Source</strong> để bạn dán trực tiếp vào OBS. Quy trình chuẩn:
+            Chọn nền tảng → Nhập username/link → Start → Copy OBS Source → Dán vào OBS → Cấu hình audio & CSS nếu cần.
           </p>
         </section>
 
         <!-- Detailed steps -->
         <section>
-          <h2 class="text-xl font-semibold mb-4">Hướng dẫn chi tiết (theo thứ tự)</h2>
+          <p class="text-xl font-semibold mb-4">Hướng dẫn chi tiết (theo thứ tự)</p>
           <ol class="list-decimal pl-6 space-y-5 text-slate-700">
             <li>
               <strong>Truy cập & chọn nền tảng</strong>
@@ -251,7 +312,7 @@
             <li>
               <strong>Lấy OBS Browser Source</strong>
               <p class="mt-2 text-slate-600">
-                Bấm <strong>Copy OBS Source</strong> trên trang — trang sẽ tạo link/embed động (JS client-side).
+                Bấm <span>Copy OBS Source</span> trên trang — trang sẽ tạo link/embed động (JS client-side).
                 Mở OBS → <em>Sources → + → Browser</em> → dán URL đó vào ô URL → chỉnh Width/Height → OK.
               </p>
               <details class="mt-2">
@@ -285,7 +346,7 @@
                 <li>Nếu URL OBS Source hỗ trợ parameter (ví dụ <code class="inline">?transparent=true</code>), thêm vào URL.</li>
                 <li>Nếu không, dán URL vào Browser Source rồi copy đoạn Custom CSS sau vào ô <em>Custom CSS</em> của Browser Source:</li>
               </ul>
-              <pre class="mt-3 p-3 bg-slate-100 rounded text-sm"><code>html, body { background: transparent !important; }
+              <pre class="mt-3 p-3 bg-slate-100 rounded text-sm"><code class="break-words whitespace-normal" >html, body { background: transparent !important; }
             body { margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
             .comment-item { padding: 6px 10px; background: rgba(255,255,255,0.8); border-radius: 8px; margin-bottom:6px; }
             .comment-item .author { font-weight:700; font-size:0.95rem; }
@@ -299,7 +360,7 @@
 
         <!-- Troubleshooting -->
         <section>
-          <h2 class="text-xl font-semibold mb-3">Lưu ý & Troubleshooting</h2>
+          <p class="text-xl font-semibold mb-3">Lưu ý & Troubleshooting</p>
           <div class="space-y-3 text-slate-600">
             <p><strong>OBS Source là link động:</strong> nút <em>Copy OBS Source</em> sinh link bằng JavaScript trên client. Bạn cần bấm nút trên trang để lấy link — mình không thể tạo link thay bạn.</p>
 
@@ -313,7 +374,7 @@
 
         <!-- Quick fixes table -->
         <section>
-          <h2 class="text-xl font-semibold mb-3">Bảng lỗi thường gặp & cách khắc phục nhanh</h2>
+          <p class="text-xl font-semibold mb-3">Bảng lỗi thường gặp & cách khắc phục nhanh</p>
           <div class="overflow-x-auto">
             <table class="w-full text-sm border-collapse">
               <thead>
@@ -344,7 +405,7 @@
           </div>
         </section>
 
-          <h2 class="text-2xl sm:text-2xl text-center">Video hướng dẫn chi tiết</h2>
+          <h3 class="text-2xl sm:text-2xl text-center">Video hướng dẫn chi tiết</h3>
           <div class="flex justify-center items-center w-full">
               <iframe
                 class="w-full max-w-5xl aspect-video rounded-2xl shadow-lg"
@@ -366,44 +427,64 @@
 <div class="min-h-screen flex items-start justify-center py-12 px-4">
   <div class="w-full max-w-6xl bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
       <div class="px-6 sm:px-10 py-8 space-y-8">
-          <h1 class="text-2xl sm:text-3xl text-center text-sky-500">
+          <h3 class="text-2xl sm:text-3xl text-center text-sky-500">
           Hướng dẫn: Thiết lập OBS để hiển thị comment lên màn hình từ LivestreamVoice
-        </h1>
-        <h2 class="text-xl sm:text-2xl font-semibold mt-8">1. Tạo Browser Source trong OBS</h2>
+        </h3>
+        <p class="text-xl sm:text-2xl font-semibold mt-8">1. Tạo Browser Source trong OBS</p>
         <p class="leading-relaxed">
           Mở OBS → Sources → + → Browser. Đặt tên ví dụ
           <strong>"LivestreamVoice Comments"</strong>. Trong URL nhập đường dẫn đã copy khi nhấn nút Copy OBS source
           (ví dụ
-          <code class="bg-gray-100 px-1 rounded">https://livestreamvoice.com/tiktok/widget/bongda24h</code>).
+          <code class="bg-gray-100 px-1 rounded break-words whitespace-normal">https://livestreamvoice.com/tiktok/widget/bongda24h</code>).
           Điều chỉnh <span class="font-medium">Width/Height</span> (ví dụ: 800x200) và chọn
           <span class="italic">'Refresh browser when scene becomes active'</span>.
         </p>
 
-        <h2 class="text-xl sm:text-2xl font-semibold mt-8">2. Chỉnh CSS hiển thị</h2>
+        <p class="text-xl sm:text-2xl font-semibold mt-8">2. Chỉnh CSS hiển thị</p>
         <p class="leading-relaxed">
           Trong Browser Source, bạn có thể dùng CSS để ẩn nền, thay font, thay màu.
           Để nền trong suốt, bật <span class="italic">'Custom CSS'</span> hoặc dùng parameter
           <code class="bg-gray-100 px-1 rounded">transparent=true</code> nếu backend của bạn hỗ trợ.
         </p>
 
-        <h2 class="text-xl sm:text-2xl font-semibold mt-8">3. Tối ưu hiển thị comment</h2>
+        <p class="text-xl sm:text-2xl font-semibold mt-8">3. Tối ưu hiển thị comment</p>
         <p class="leading-relaxed">
           Gợi ý: giới hạn số comment đang hiển thị (5-10), thiết lập animation fade để không che khung,
           đặt tốc độ cuộn phù hợp với lượng comment.
         </p>
 
-        <h2 class="text-xl sm:text-2xl font-semibold mt-8">4. Kiểm tra đường truyền & quyền</h2>
+        <p class="text-xl sm:text-2xl font-semibold mt-8">4. Kiểm tra đường truyền & quyền</p>
         <p class="leading-relaxed">
           Đảm bảo API lấy comment không bị CORS chặn (server trả header
           <code class="bg-gray-100 px-1 rounded">Access-Control-Allow-Origin: *</code> hoặc domain của bạn).
           Nếu gặp lỗi CORS, log console trong trình duyệt sẽ cho biết — sửa tại backend.
         </p>
 
-        <h2 class="text-xl sm:text-2xl font-semibold mt-8">Kết luận</h2>
+        <p class="text-xl sm:text-2xl font-semibold mt-8">Kết luận</p>
         <p class="leading-relaxed">
           Với các bước trên, bạn có thể đưa LivestreamVoice vào OBS mượt mà.
           Nếu cần mẫu CSS/JS, liên hệ support để mình gửi file ví dụ.
         </p>
+<p>
+  Để hiểu rõ cách chúng tôi bảo vệ quyền riêng tư của bạn, hãy đọc
+  <a href="/static/page/privacy.html" class="text-sky-500 hover:underline">
+    Chính sách bảo mật
+  </a>.
+</p>
+
+<p>
+  Nếu có thắc mắc hoặc cần hỗ trợ, vui lòng
+  <a href="/static/page/contact.html" class="text-sky-500 hover:underline">
+    liên hệ với chúng tôi
+  </a>.
+</p>
+
+<p>
+  Tìm hiểu thêm về đội ngũ và sứ mệnh của LivestreamVoice tại
+  <a href="/static/page/about.html" class="text-sky-500 hover:underline">
+    trang Giới thiệu
+  </a>.
+</p>
       </div>
   </div>
 </div>
@@ -460,4 +541,3 @@
     <script src="/static/js/popup-error.js"></script>
 </body>
 </html>
-[
