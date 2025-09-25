@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2006d6f8-6ab3-4c7c-b609-ca1a8c975864" name="Changes" comment="add ai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/facebook_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/facebook_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/counter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/counter.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,29 +49,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Flask server.Flask (app.py).executor&quot;: &quot;Debug&quot;,
-    &quot;Python.ai.executor&quot;: &quot;Run&quot;,
-    &quot;Python.facebook_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.leetcode.executor&quot;: &quot;Run&quot;,
-    &quot;Python.read_comment_live_fb_yt_tiktok.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.read_comment_live_fb_yt_tiktok_v2.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.shopee.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/truongjae/Desktop/win/HOCTAP/Python/python-promax-main/postapi/tiktoktestapi/tiktok-comment-v2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Flask server.Flask (app.py).executor": "Debug",
+    "Python.ai.executor": "Run",
+    "Python.facebook_client.executor": "Run",
+    "Python.leetcode.executor": "Run",
+    "Python.read_comment_live_fb_yt_tiktok.executor": "Debug",
+    "Python.read_comment_live_fb_yt_tiktok_v2.executor": "Run",
+    "Python.shopee.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/truongjae/Desktop/win/HOCTAP/Python/python-promax-main/postapi/tiktoktestapi/tiktok-comment-v2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/css" />
@@ -198,15 +199,7 @@
       <workItem from="1758821505730" duration="2633000" />
       <workItem from="1758824552628" duration="95000" />
       <workItem from="1758824667615" duration="30000" />
-      <workItem from="1758824945999" duration="84000" />
-    </task>
-    <task id="LOCAL-00015" summary="add music wave fix">
-      <option name="closed" value="true" />
-      <created>1747850717802</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1747850717802</updated>
+      <workItem from="1758824945999" duration="1025000" />
     </task>
     <task id="LOCAL-00016" summary="add music wave fix">
       <option name="closed" value="true" />
@@ -592,7 +585,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758824683044</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="add ai">
+      <option name="closed" value="true" />
+      <created>1758825114661</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1758825114661</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,15 +699,17 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$read_comment_live_fb_yt_tiktok.coverage" NAME="read_comment_live_fb_yt_tiktok Coverage Results" MODIFIED="1749880887558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/tiktok_comment_v2$read_comment_live_fb_yt_tiktok_v2.coverage" NAME="read_comment_live_fb_yt_tiktok_v2 Coverage Results" MODIFIED="1758825782709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$shopee.coverage" NAME="shopee Coverage Results" MODIFIED="1748885239784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$ai.coverage" NAME="ai Coverage Results" MODIFIED="1758651356975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
+    <SUITE FILE_PATH="coverage/tiktok_comment_v2$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1758825769325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$test.coverage" NAME="test Coverage Results" MODIFIED="1749885991537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$read_comment_live_fb_yt_tiktok_v2.coverage" NAME="read_comment_live_fb_yt_tiktok_v2 Coverage Results" MODIFIED="1758654289358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1748348929099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1758824036353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
-    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1748679126840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1751127629990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$ai.coverage" NAME="ai Coverage Results" MODIFIED="1752933585452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$read_comment_live_fb_yt_tiktok.coverage" NAME="read_comment_live_fb_yt_tiktok Coverage Results" MODIFIED="1749880887558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$read_comment_live_fb_yt_tiktok_v2.coverage" NAME="read_comment_live_fb_yt_tiktok_v2 Coverage Results" MODIFIED="1758654289358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1758824036353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1748679126840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

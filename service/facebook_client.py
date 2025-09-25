@@ -45,6 +45,8 @@ def get_feedback_id(url):
     feedback_id = utils.cut_string(result, ',"feedback":{"id":"', '"')
     if feedback_id == '':
         post_id = utils.cut_string(result, 'story_fbid%3D', '%26')
+        if post_id == '':
+            return ''
         feedback_id = utils.text_to_base64('feedback:'+post_id)
     return feedback_id
 #
