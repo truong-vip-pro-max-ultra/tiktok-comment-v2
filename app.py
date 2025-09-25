@@ -322,7 +322,7 @@ def check_is_live_stream_facebook(url_encode):
     if not url:
         return jsonify({"error": "Missing url"}), 400
     check = get_feedback_id(url)
-    if check != '':
+    if check != '' and check != 'init':
         return jsonify({"message": f"Started Facebook client for {url}"}), 200
     return jsonify({"error": f"{url} not live"}), 400
 

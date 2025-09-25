@@ -38,9 +38,13 @@ def get_feedback_id(url):
         "viewport-width": "737"
     }
     response = requests.get(url, headers=headers)
-    feedback_id = utils.cut_string(response.text, ',"feedback":{"id":"', '"')
+    result = response.text
+    if '"live_video_for_comet_live_ring":{"id":"' in result:
+        video_id = utils.cut_string(result, '"live_video_for_comet_live_ring":{"id":"', '"')
+        result = requests.get('https://www.facebook.com/'+video_id, headers=headers).text
+    feedback_id = utils.cut_string(result, ',"feedback":{"id":"', '"')
     if feedback_id == '':
-        post_id = utils.cut_string(response.text, 'story_fbid%3D', '%26')
+        post_id = utils.cut_string(result, 'story_fbid%3D', '%26')
         feedback_id = utils.text_to_base64('feedback:'+post_id)
     return feedback_id
 #

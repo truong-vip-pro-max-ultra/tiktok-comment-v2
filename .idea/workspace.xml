@@ -21998,8 +21998,9 @@
       <change beforePath="$PROJECT_DIR$/../../teststring.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../teststring.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../tienganhb1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../tienganhb1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/facebook_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/facebook_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/counter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/counter.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../python k7/demonumpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../python k7/demonumpy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../python k7/demopygame.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../python k7/demopygame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../python k7/function.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../python k7/function.py" afterDir="false" />
@@ -22158,7 +22159,7 @@
       <recent name="$PROJECT_DIR$/cicd" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.read_comment_live_fb_yt_tiktok_v2">
+  <component name="RunManager">
     <configuration name="read_comment_live_fb_yt_tiktok" type="PythonConfigurationType" factoryName="Python">
       <module name="read_comment_live_fb_yt_tiktok" />
       <option name="ENV_FILES" value="" />
@@ -22272,7 +22273,8 @@
       <workItem from="1758556780138" duration="2792000" />
       <workItem from="1758633834716" duration="12005000" />
       <workItem from="1758654797366" duration="46000" />
-      <workItem from="1758720380745" duration="129000" />
+      <workItem from="1758720380745" duration="780000" />
+      <workItem from="1758821505730" duration="2633000" />
     </task>
     <task id="LOCAL-00014" summary="add music wave">
       <option name="closed" value="true" />
@@ -22778,6 +22780,7 @@
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$test.coverage" NAME="test Coverage Results" MODIFIED="1749885991537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$read_comment_live_fb_yt_tiktok_v2.coverage" NAME="read_comment_live_fb_yt_tiktok_v2 Coverage Results" MODIFIED="1758654289358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1748348929099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok_v2$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1758824036353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/service" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$facebook_client.coverage" NAME="facebook_client Coverage Results" MODIFIED="1748679126840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1751127629990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/read_comment_live_fb_yt_tiktok$ai.coverage" NAME="ai Coverage Results" MODIFIED="1752933585452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
