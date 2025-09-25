@@ -31,7 +31,7 @@ old_comment_tiktok = {}
 old_comment_youtube = {}
 old_comment_facebook = {}
 
-ALLOWED_ORIGINS = ['https://livestreamvoice.com','http://localhost']
+ALLOWED_ORIGINS = ['https://livestreamvoice.com','https://www.livestreamvoice.com','http://localhost']
 PATH_ALLOWED_ORIGINS = ['/', '/youtube', '/facebook', '']
 PATH_STARTS_WITH_ORIGINS = ['/tiktok/check', '/facebook/check', '/youtube/check',
     '/tiktok/start', '/facebook/start', '/youtube/start',
