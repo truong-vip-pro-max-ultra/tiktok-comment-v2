@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2006d6f8-6ab3-4c7c-b609-ca1a8c975864" name="Changes" comment="add ai">
-      <change beforePath="$PROJECT_DIR$/utils/counter.txt" beforeDir="false" afterPath="$PROJECT_DIR$/utils/counter.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/facebook_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/facebook_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/background.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,23 +199,7 @@
       <workItem from="1758821505730" duration="2633000" />
       <workItem from="1758824552628" duration="95000" />
       <workItem from="1758824667615" duration="30000" />
-      <workItem from="1758824945999" duration="1100000" />
-    </task>
-    <task id="LOCAL-00017" summary="add music wave fix">
-      <option name="closed" value="true" />
-      <created>1747851528725</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1747851528725</updated>
-    </task>
-    <task id="LOCAL-00018" summary="add music wave fix">
-      <option name="closed" value="true" />
-      <created>1747852798071</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1747852798071</updated>
+      <workItem from="1758824945999" duration="1877000" />
     </task>
     <task id="LOCAL-00019" summary="add music wave fix">
       <option name="closed" value="true" />
@@ -591,7 +577,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758825981745</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="add ai">
+      <option name="closed" value="true" />
+      <created>1758826052527</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1758826052527</updated>
+    </task>
+    <task id="LOCAL-00067" summary="add ai">
+      <option name="closed" value="true" />
+      <created>1758826342520</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1758826342520</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -39,7 +39,6 @@ def get_feedback_id(url):
     }
     response = requests.get(url, headers=headers)
     result = response.text
-    print(result)
     if '"live_video_for_comet_live_ring":{"id":"' in result:
         video_id = utils.cut_string(result, '"live_video_for_comet_live_ring":{"id":"', '"')
         result = requests.get('https://www.facebook.com/'+video_id, headers=headers).text

@@ -46,12 +46,12 @@ function setupValueLabel(platform){
         textPlaceholderUsername = 'ví dụ: nguyenvana';
     }
     else if(platform === PLATFORM_FACEBOOK){
-        textLabelUsername = 'Nhập link livestream Facebook:';
-        textPlaceholderUsername = 'ví dụ: https://www.facebook.com/LienquanMobile/videos/634682809019140';
+        textLabelUsername = 'Nhập link video livestream Facebook:';
+        textPlaceholderUsername = 'ví dụ: https://fb.com/lqmb/videos/634682809019140';
     }
     else if(platform === PLATFORM_YOUTUBE){
-        textLabelUsername = 'Nhập link livestream Youtube:';
-        textPlaceholderUsername = 'ví dụ: https://www.youtube.com/watch?v=CUyoRAP9te0&ab_channel=MixiGaming'
+        textLabelUsername = 'Nhập link video livestream Youtube:';
+        textPlaceholderUsername = 'ví dụ: https://youtube.com/watch?v=CUyoRAP9te0&ab_channel=MixiGaming'
     }
     labelUsernameElm.innerText = textLabelUsername;
     usernameElm.placeholder = textPlaceholderUsername;
