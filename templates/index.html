@@ -178,6 +178,31 @@
                 <div class="absolute left-0.5 top-0.5 bg-white w-5 h-5 rounded-full transition-transform duration-300 peer-checked:translate-x-full"></div>
               </label>
             </div>
+              <!-- Speed control -->
+            <div class="col-span-2 space-y-3 option-read-comment-speed" allow-platform='["tiktok","facebook","youtube"]'>
+              <label for="ttsRate" class="text-sm flex items-center gap-2">
+                <i class="fa-solid fa-gauge-high text-indigo-400"></i>
+                Tốc độ đọc (0.5× – 3.0×):
+                <span id="ttsRateLabel" class="ml-1 font-semibold">1.00×</span>
+              </label>
+
+              <div class="flex items-center gap-3">
+                <input id="ttsRate" type="range" min="0.5" max="3" step="0.05" value="1"
+                       class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" />
+                <input id="ttsRateNumber" type="number" min="0.5" max="3" step="0.05" value="1"
+                       class="w-20 px-2 py-1 border rounded-md text-sm text-right" />
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <button type="button" data-rate="0.75" class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">0.75×</button>
+                <button type="button" data-rate="1"     class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">1×</button>
+                <button type="button" data-rate="1.25"  class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">1.25×</button>
+                <button type="button" data-rate="1.5"   class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">1.5×</button>
+                <button type="button" data-rate="2"     class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">2×</button>
+                <button type="button" data-rate="3"     class="px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-sm">3×</button>
+              </div>
+            </div>
+            <!-- End Speed control -->
           </div>
         </div>
 
@@ -539,5 +564,56 @@
     <script src="/static/js/background.js"></script>
     <script src="/static/js/read-comment.js"></script>
     <script src="/static/js/popup-error.js"></script>
+
+    <script>
+    (function () {
+      const slider = document.getElementById('ttsRate');
+      const input  = document.getElementById('ttsRateNumber');
+      const label  = document.getElementById('ttsRateLabel');
+      if (!slider || !input || !label) return;
+
+      const RATE_LS_KEY = 'ttsRate';
+      const MIN = 0.5, MAX = 3.0;
+
+      const clamp = v => {
+        const n = parseFloat(v);
+        if (!Number.isFinite(n)) return 1;
+        return Math.max(MIN, Math.min(MAX, n));
+      };
+
+      const updateUI = v => {
+        label.textContent = v.toFixed(2) + '×';
+        slider.value = v;
+        input.value = v;
+        const pct = ((v - MIN) / (MAX - MIN)) * 100;
+      };
+
+      const dispatchRate = v => {
+        const rate = clamp(v);
+        window.lvVoiceRate = rate;
+        try { localStorage.setItem(RATE_LS_KEY, rate); } catch {}
+        document.dispatchEvent(new CustomEvent('lv-rate-change', { detail: { rate } }));
+      };
+
+      const saved = clamp(localStorage.getItem(RATE_LS_KEY) ?? 1);
+      updateUI(saved);
+      dispatchRate(saved);
+
+      slider.addEventListener('input',  e => updateUI(clamp(e.target.value)));
+      slider.addEventListener('change', e => dispatchRate(e.target.value));
+      input .addEventListener('input',  e => updateUI(clamp(e.target.value)));
+      input .addEventListener('change', e => dispatchRate(e.target.value));
+
+      document.querySelectorAll('[data-rate]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = clamp(btn.dataset.rate);
+          updateUI(v);
+          dispatchRate(v);
+        });
+      });
+    })();
+    </script>
+
+
 </body>
 </html>
